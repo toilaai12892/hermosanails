@@ -1,0 +1,3 @@
+
+import {sql,ensure} from "../_db.js";
+export default async function handler(req,res){if(req.method!=="GET")return res.status(405).json({error:"Method not allowed."});try{const date=String(req.query.date||"");if(!/^\d{4}-\d{2}-\d{2}$/.test(date))return res.status(400).json({error:"Invalid date."});const db=sql();await ensure(db);const rows=await db`SELECT staff,appointment_time FROM booking_slots WHERE appointment_date=${date} AND active=TRUE`;const blocked={};for(const r of rows)(blocked[r.staff]??=[]).push(r.appointment_time);return res.status(200).json({blocked})}catch(e){console.error(e);return res.status(500).json({error:"Unable to load availability."})}}
