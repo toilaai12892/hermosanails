@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hermosa Nails - Luxury Booking Experience</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="gold-glow"></div>
+
+    <!-- Header Tiệm -->
+    <header class="header">
+        <div class="logo">HERMOSA NAILS</div>
+        <p class="store-info">📍 100 E Nolana Ave Suite 180 McAllen, TX | 📞 (956) 627-3366</p>
+    </header>
+
+    <!-- Dòng chữ chạy vô tận cực ngầu -->
+    <div class="marquee-container">
+        <div class="marquee-content">
+            <span>✦ HERMOSA NAILS LUXURY EXPERIENCE</span>
+            <span>✦ PROFESSIONAL NAIL CARE & SPA</span>
+            <span>✦ ARTIFICIAL NAILS</span>
+            <span>✦ DIPPING POWDER</span>
+            <span>✦ DELUXE PEDICURE</span>
+        </div>
+        <div class="marquee-content" aria-hidden="true">
+            <span>✦ HERMOSA NAILS LUXURY EXPERIENCE</span>
+            <span>✦ PROFESSIONAL NAIL CARE & SPA</span>
+            <span>✦ ARTIFICIAL NAILS</span>
+            <span>✦ DIPPING POWDER</span>
+            <span>✦ DELUXE PEDICURE</span>
+        </div>
+    </div>
+
+    <main class="main-container">
+        <!-- Hệ Thống Booking Tabs -->
+        <section class="booking-section glass">
+            <div class="booking-tabs">
+                <button class="tab-btn active" id="btn-services-tab">Services</button>
+                <button class="tab-btn" id="btn-staff-tab">Staff</button>
+            </div>
+
+            <!-- MÀN HÌNH 1: CHỌN DỊCH VỤ -->
+            <div id="step-services" class="booking-step active">
+                <div class="search-bar">
+                    <input type="text" id="serviceSearch" placeholder="Search service...">
+                </div>
+                
+                <div class="accordion-container" id="servicesMenu">
+                    <!-- Data tự động đổ vào đây bằng JS -->
+                </div>
+            </div>
+
+            <!-- MÀN HÌNH 2: CHỌN STAFF -->
+            <div id="step-staff" class="booking-step">
+                <h3 class="step-title">Select Staff</h3>
+                <div class="staff-list" id="staffList">
+                    <!-- Đổ danh sách staff bằng JS -->
+                </div>
+            </div>
+
+            <!-- MÀN HÌNH 3: CHỌN NGÀY GIỜ -->
+            <div id="step-datetime" class="booking-step">
+                <h3 class="step-title">Select Date & Time</h3>
+                <div class="calendar-box">
+                    <input type="date" id="bookingDate" min="2026-01-01">
+                </div>
+                <div class="time-slots-container">
+                    <h4>Morning</h4>
+                    <div class="time-grid" id="morning-slots"></div>
+                    <h4>Afternoon</h4>
+                    <div class="time-grid" id="afternoon-slots"></div>
+                </div>
+            </div>
+
+            <!-- MÀN HÌNH 4: TÓM TẮT & XÁC NHẬN -->
+            <div id="step-summary" class="booking-step">
+                <h3 class="step-title">Review & Confirm</h3>
+                <div class="summary-card">
+                    <p><strong>Service:</strong> <span id="summary-service">None</span></p>
+                    <p><strong>Staff:</strong> <span id="summary-staff">None</span></p>
+                    <p><strong>Date & Time:</strong> <span id="summary-time">None</span></p>
+                </div>
+                <button class="btn-confirm" id="btnBookNow">Confirm Appointment</button>
+            </div>
+
+            <!-- Thanh điều hướng Booking -->
+            <div class="booking-footer">
+                <button class="nav-btn" id="btnBack" disabled>Back</button>
+                <button class="nav-btn primary-gold" id="btnNext" disabled>Next</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal thông báo thành công -->
+    <div class="modal" id="successModal">
+        <div class="modal-content glass">
+            <h2>✨ Booking Successful!</h2>
+            <p>Thank you for choosing Hermosa Nails. Your appointment is secured.</p>
+            <button onclick="location.reload()" class="btn-confirm">Awesome</button>
+        </div>
+    </div>
+
+    <!-- Nạp danh sách menu gốc từ tiệm -->
+    <script>
+        window.HERMOSA_MENU = {
+            "Artificial Nails": [
+                { name: "Full Set", price: "$50" }, { name: "Powder Color Full Set", price: "$50" },
+                { name: "Overlay Acrylic", price: "$45" }, { name: "Pink and White / Ombre", price: "$60" },
+                { name: "White / Pearl tip", price: "$45" }, { name: "Gel X", price: "$50" }
+            ],
+            "Dipping Powder": [
+                { name: "Dip Overlay", price: "$45" }, { name: "Dip with Tip", price: "$50" }, { name: "Dip French Tip", price: "$55" }
+            ],
+            "Manicure Service": [
+                { name: "Manicure", price: "$20" }, { name: "Manicure + Polish", price: "$25" }, { name: "Manicure + Shellac", price: "$35" }
+            ],
+            "Pedicure Service": [
+                { name: "Basic Pedicure", price: "$32" }, { name: "Spa Pedicure", price: "$37" },
+                { name: "Deluxe Pedicure", price: "$47" }, { name: "Deluxe Package", price: "$57" },
+                { name: "Avocado Deluxe", price: "$62" }, { name: "Jelly Deluxe", price: "$72" }
+            ],
+            "Waxing": [
+                { name: "Eyebrow", price: "$10" }, { name: "Lip", price: "$6" },
+                { name: "Whole Face", price: "$35" }, { name: "Under Arm", price: "$15" }, { name: "Side Burn", price: "$10 & Up" }
+            ]
+        };
+        window.HERMOSA_STAFF = ["Any available staff", "Chau", "Giao", "Lam", "Helen", "Ana", "Marissa", "Evelyn"];
+    </script>
+    <script src="app.js"></script>
+</body>
+</html>
