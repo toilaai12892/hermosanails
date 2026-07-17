@@ -1,0 +1,12 @@
+
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Appointment Manage | Hermosa Nails</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css"></head><body>
+<div class="noise"></div><header class="topbar"><a class="brand" href="/"><span class="brand-mark">H</span><span><strong>Hermosa Nails</strong><small>Luxury Nail Lounge</small></span></a><nav><a href="tel:+19566273366">Call Salon</a><a class="pill-link" href="/">New Booking</a></nav></header>
+<main class="manage-main">
+<section class="manage-hero"><p class="eyebrow">Customer Portal</p><h1>Appointment Manage</h1><p>Enter your six-character booking code and the exact booking representative name.</p></section>
+<section id="lookupCard" class="manage-card-wide"><div class="field-grid"><label class="field"><span>Booking Code *</span><input id="lookupCode" maxlength="6" placeholder="A1B2C3"></label><label class="field"><span>Booking Name *</span><input id="lookupName" placeholder="Full booking name"></label></div><button id="lookupBtn" class="gold-button">Confirm & View Appointment →</button><p id="lookupError" class="error"></p></section>
+<section id="manageEditor" class="manage-card-wide hidden"><header class="manage-editor-head"><div><small>Verified Appointment</small><h2 id="manageCode"></h2></div><button id="signOut" class="back-button">Sign Out</button></header><div id="manageForm"></div><div class="policy"><strong>Need to cancel?</strong><p>Please call Hermosa Nails at <a href="tel:+19566273366">(956) 627-3366</a>.</p></div><button id="saveChanges" class="gold-button">Save Appointment Changes →</button><p id="saveError" class="error"></p></section>
+</main><div id="toast" class="toast">Appointment updated successfully.</div><script src="data.js"></script><script src="manage.js"></script><script src="i18n.js"></script></body></html>

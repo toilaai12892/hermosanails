@@ -1,0 +1,145 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0b0909">
+  <title>Hermosa Nails | Luxury Booking</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="noise"></div><div class="orb orb-one"></div><div class="orb orb-two"></div>
+  <header class="topbar">
+    <a class="brand" href="/">
+      <span class="brand-mark">H</span>
+      <span><strong>Hermosa Nails</strong><small>Luxury Nail Lounge</small></span>
+    </a>
+    <nav>
+      <a href="tel:+19566273366">Call Salon</a>
+      <a class="pill-link" href="/manage.html">Appointment Manage</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">McAllen’s Luxury Nail Experience</p>
+        <h1>Beauty, refined.<br><span>Booking, reimagined.</span></h1>
+        <p class="hero-copy">Create a personalized appointment for one to seven guests, choose multiple services, and reserve your preferred artist.</p>
+      </div>
+      <aside class="hero-card">
+        <small>Hermosa Nails</small>
+        <h3>100 E Nolana Ave</h3>
+        <p>Suite 180, McAllen, TX</p>
+        <a href="tel:+19566273366">(956) 627-3366</a>
+      </aside>
+    </section>
+
+    <section class="booking-shell" id="booking">
+      <aside class="booking-steps">
+        <p>Appointment Setup</p>
+        <button data-step="0" class="active"><b>01</b><span>Contact<small>Representative</small></span></button>
+        <button data-step="1"><b>02</b><span>Guests<small>Group size</small></span></button>
+        <button data-step="2"><b>03</b><span>Services<small>Each guest</small></span></button>
+        <button data-step="3"><b>04</b><span>Schedule<small>Date & time</small></span></button>
+        <button data-step="4"><b>05</b><span>Confirm<small>Final review</small></span></button>
+        <a class="side-manage" href="/manage.html">Manage an appointment →</a>
+      </aside>
+
+      <section class="booking-panel">
+        <header class="panel-head">
+          <div><small id="stepLabel">Step 1 of 5</small><h2 id="stepTitle">Who is booking?</h2></div>
+          <div class="progress"><i id="progressFill"></i></div>
+        </header>
+
+        <div class="panel-body">
+          <section class="form-step active" data-form-step="0">
+            <div class="section-lead"><h3>Booking representative</h3><p>One name and phone number will represent the entire appointment.</p></div>
+            <div class="field-grid">
+              <label class="field"><span>Full Name *</span><input id="customerName" autocomplete="name" placeholder="Enter your full name"></label>
+              <label class="field"><span>Phone Number *</span><input id="customerPhone" autocomplete="tel" placeholder="(956) 000-0000"></label>
+            </div>
+          </section>
+
+          <section class="form-step" data-form-step="1">
+            <div class="section-lead"><h3>How many guests?</h3><p>Select everyone receiving services, up to seven guests.</p></div>
+            <div id="guestCounts" class="guest-counts"></div>
+          </section>
+
+          <section class="form-step" data-form-step="2">
+            <div class="section-lead guest-lead">
+              <div><h3>Personalize each guest</h3><p>Choose multiple services and a staff member for each person.</p></div>
+              <div id="guestTabs" class="guest-tabs"></div>
+            </div>
+            <div id="guestEditor"></div>
+          </section>
+
+          <section class="form-step" data-form-step="3">
+            <div class="section-lead"><h3>Select date & time</h3><p>Past days and unavailable times are disabled automatically.</p></div>
+            <div class="calendar-layout">
+              <div class="calendar-card">
+                <div class="calendar-head">
+                  <button id="prevMonth">←</button><strong id="calendarMonth"></strong><button id="nextMonth">→</button>
+                </div>
+                <div class="weekdays"><span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span></div>
+                <div id="calendarGrid" class="calendar-grid"></div>
+              </div>
+              <div class="schedule-side">
+                <div class="selected-schedule"><small>Selected appointment</small><strong id="selectedSchedule">Choose a date</strong></div>
+                <div class="availability-note" id="availabilityNote">Times will appear after selecting a date.</div>
+              </div>
+            </div>
+            <div id="timeArea" class="time-area hidden">
+              <div><small>Morning</small><div id="morningTimes" class="time-grid"></div></div>
+              <div><small>Afternoon</small><div id="afternoonTimes" class="time-grid"></div></div>
+            </div>
+          </section>
+
+          <section class="form-step" data-form-step="4">
+            <div class="review-banner"><span>✦</span><div><small>Final Review</small><h3>Your appointment is ready.</h3></div></div>
+            <div id="reviewContact" class="review-contact"></div>
+            <div id="reviewGuests" class="review-guests"></div>
+            <div class="policy">
+              <strong>Changes & cancellations</strong>
+              <p>Call Hermosa Nails at <a href="tel:+19566273366">(956) 627-3366</a>, or use Appointment Manage with your booking code and booking name.</p>
+            </div>
+            <button id="confirmBooking" class="gold-button">Confirm Appointment <span>→</span></button>
+          </section>
+        </div>
+
+        <footer class="panel-footer">
+          <button id="backBtn" class="back-button" disabled>← Back</button>
+          <p id="footerHint">Enter your name and phone number.</p>
+          <button id="nextBtn" class="next-button" disabled>Continue →</button>
+        </footer>
+      </section>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div><strong>Hermosa Nails</strong><span>Luxury nail care in McAllen, Texas.</span></div>
+    <div><a href="/manage.html">Appointment Manage</a> · <a href="/admin.html">Admin</a></div>
+  </footer>
+
+  <div id="successModal" class="modal">
+    <div class="modal-bg"></div>
+    <div class="success-card">
+      <div class="success-icon">✓</div>
+      <p class="eyebrow">Booking Submitted</p>
+      <h2>Your appointment request was received.</h2>
+      <p>Save this six-character code. You’ll need it with your booking name to manage the appointment.</p>
+      <div id="bookingCode" class="booking-code">------</div>
+      <button id="copyCode" class="gold-button">Copy Booking Code</button>
+      <a class="secondary-link" href="/manage.html">Open Appointment Manage</a>
+      <small>To change or cancel by phone, call (956) 627-3366.</small>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+<script src="i18n.js"></script></body>
+</html>

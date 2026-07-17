@@ -1,0 +1,13 @@
+
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hermosa Admin</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css"></head>
+<body><div class="noise"></div><header class="topbar"><a class="brand" href="/"><span class="brand-mark">H</span><span><strong>Hermosa Admin</strong><small>Operations Dashboard</small></span></a><nav><a href="/">Booking Site</a><button id="logoutBtn" class="pill-link hidden">Log Out</button></nav></header>
+<main class="admin-main">
+<section id="adminLogin" class="admin-login"><p class="eyebrow">Private Access</p><h1>Salon Dashboard</h1><p>Enter the admin password configured in Vercel.</p><label class="field"><span>Admin Password</span><input id="adminPassword" type="password" placeholder="Enter password"></label><button id="loginBtn" class="gold-button">Open Dashboard →</button><p id="loginError" class="error"></p></section>
+<section id="dashboard" class="hidden">
+  <header class="dashboard-head"><div><p class="eyebrow">Live Operations</p><h1>Appointment Dashboard</h1></div><button id="refreshBtn" class="back-button">Refresh</button></header>
+  <div id="analytics" class="analytics-grid"></div>
+  <div class="dashboard-tools"><input id="filterDate" type="date"><select id="filterStatus"><option value="">All statuses</option><option>pending</option><option>confirmed</option><option>completed</option><option>cancelled</option></select></div>
+  <div id="bookingTable" class="booking-table"></div>
+</section></main><div id="toast" class="toast">Updated.</div><script src="admin.js"></script><script src="i18n.js"></script></body></html>

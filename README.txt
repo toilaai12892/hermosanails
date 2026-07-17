@@ -1,28 +1,37 @@
-HERMOSA NAILS BOOKING V2
+HERMOSA NAILS BOOKING V3 — VIP
 
-Vercel Environment Variables required:
-1. DISCORD_WEBHOOK_URL = Discord webhook URL
-2. DATABASE_URL = Neon Postgres connection string
+Included:
+- Custom luxury calendar
+- Past-date blocking
+- Staff avatar cards and ratings
+- Service visual cards
+- Smooth animations and success confetti
+- 1–7 guests, multiple services per guest
+- Booking code and customer management page
+- Discord notification for new bookings and changes
+- Anti-double-booking by staff/date/time
+- Admin dashboard with analytics and statuses
 
-Database setup:
-- Vercel Project > Storage / Marketplace > install/connect Neon Postgres.
-- Connect it to this Vercel project. DATABASE_URL is usually added automatically.
-- Keep both variables Sensitive and enable Production + Preview.
-- Redeploy the project.
-- The bookings table creates itself automatically on the first booking.
+Required Vercel Environment Variables:
+1. DATABASE_URL
+2. DISCORD_WEBHOOK_URL
+3. ADMIN_PASSWORD
+4. ADMIN_SECRET
 
-Pages:
-/              New booking
-/manage.html   Appointment Manage
+ADMIN_PASSWORD:
+The password used to enter /admin.html
 
-Features:
-- 1 to 7 guests
-- Multiple services per guest
-- Separate staff per guest
-- Representative name and phone
-- 6-character booking code
-- Database storage
-- Customer lookup and editing
-- Discord notification with exact before/after changes
-- Past dates disabled
-- Cancellation by salon phone only
+ADMIN_SECRET:
+A long random secret used to sign admin sessions.
+Example: generate a random 40+ character string. Do not reuse the password.
+
+After uploading:
+- npm dependencies install automatically.
+- Redeploy after adding environment variables.
+- Database tables and indexes create automatically on first use.
+
+MULTI-LANGUAGE
+- Floating language bubble in the bottom-right corner.
+- English, Spanish, and Vietnamese.
+- Language preference is remembered on the device.
+- Enabled on Booking, Appointment Manage, and Admin pages.
